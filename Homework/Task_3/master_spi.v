@@ -3,8 +3,7 @@ module master_spi (
 	
 	input miso,
 	output mosi,
-	output clk_spi,
-	output ss
+	output clk_spi
 );
 
 reg [3:0]en_cnt = 0;
@@ -36,5 +35,5 @@ end
 
 assign mosi = shift_register[7];
 and(clk_spi, clk, spi_enable);
-assign ss = 0;
+
 endmodule

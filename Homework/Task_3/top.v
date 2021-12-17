@@ -27,10 +27,10 @@ end
 
 assign clk_seg = clk_seg_reg[12];
 
-master_spi master_spi(.clk(clk_nmb), .mosi(mosi), .miso(miso), .clk_spi(clk_spi), .ss(ss));
+master_spi master_spi(.clk(clk_nmb), .mosi(mosi), .miso(miso), .clk_spi(clk_spi));
 
 wire [7:0]data_to_seg;
-slave_spi slave_spi(.mosi(mosi), .miso(miso), .clk(clk_spi), .ss(ss), .data_to_seg(data_to_seg));
+slave_spi slave_spi(.mosi(mosi), .miso(miso), .clk(clk_spi), .data_to_seg(data_to_seg));
 wire [15:0]d = {8'h00, data_to_seg};
 
 hex_display hex_display(.clk(clk_seg), .data(d), .numbers(numbers), .segments(segments));
